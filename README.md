@@ -2,7 +2,7 @@
 
 ## class PoseEstimator(front_radius=0.2, back_radius=0.2, dist_front_back=1.0, dist_wheels=0.75, max_ticks=512.0, start_coord=[[1.0, 0.0],[0.0, 0.0]], start_heading=0.0, start_time=0.0)
 
-Create an object which is able to calculate the estimated pose of a tricycle platform on a 2D plane. The default values of the optional parameters are set to the given values in the code challenge specification. front_radius is the radius of the front wheel, back_radius is the radius of the back wheel, dist_front_back is the distance from the middle of the back axle to the pivot point of the front wheel, dist_wheels is the distance between the two wheels on the back axle, max_ticks is the number of ticks the encoder uses for a full revolution, start_coord is the list of [x,y] coordinates for the front and back, start_heading is the initial heading pose of the platform, and start_time is the starting reference time. When a new set of data is provided to the estimate method of this class, the new position is calculated and the reference data is updated to the new position data. This allows for continuous pose estimation for the platform over time.
+Create an object which is able to calculate the estimated pose of a tricycle platform on a 2D plane. The default values of the optional parameters are set to the given values in the code challenge specification. front_radius is the radius of the front wheel, back_radius is the radius of the back wheel, dist_front_back is the distance from the middle of the back axle to the pivot point of the front wheel, dist_wheels is the distance between the two wheels on the back axle, max_ticks is the number of ticks the encoder uses for a full revolution, start_coord is the list of [x,y] coordinates for the front and back, start_heading is the initial heading pose of the platform, and start_time is the starting reference time. When a new set of data is provided to the estimate method of this class, the new position is calculated and the internal reference data is updated to the new position data. This allows for continuous pose estimation for the platform over time.
    
 The PoseEstimator class provides one method.
 
@@ -49,7 +49,9 @@ print(filter.update(test_arr))
 
 ## class TemporalMedianFilter(num_prev_scans)
 
-Create an object which will provide a temporal median filtering mechanism for LIDAR scan data. num_prev_scans is the number of previous scans to use to calculate the new median. 
+Create an object which will provide a temporal median filtering mechanism for LIDAR scan data. num_prev_scans is the number of previous scans to use to calculate the new median for filtering. 
+
+The TemporalMedianFilter class provides one method.
 
 ### update(scan_data)
 
